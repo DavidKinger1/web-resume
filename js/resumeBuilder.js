@@ -18,14 +18,14 @@ var bio = {
     "name": "David King",
     "role": "Web Developer",
     "contacts": {
-        "mobileNum": "707*386-1072",
+        "mobile": "707*386-1072",
         "email": "kingda1@hotmail.com",
         "github": "",
         "twitter": "",
         "location": ""
     },
-    "pictureURL": "",
-    "welcomeMsg": "Welcome to My Resume",
+    "biopic": "",
+    "welcomeMessage": "Welcome to My Resume",
     "skills": ["Server Admin","Enterprise Vault","Web Developer","C#"]
     
 };
@@ -35,10 +35,11 @@ var bio = {
 var education = { 
     "schools":[
     {
-    "school": "Moreau",
-    "schoolCity": "Hayward",
-    "major": ["high school"],
-    "gradutionYear": "1986",
+    "name": "Moreau",
+    "location": "Hayward",
+    "degree": ["high school"],
+    "majors":[],
+    "dates": "1986",
     "url":"http://www.kingagenda.com"
     }
    ],
