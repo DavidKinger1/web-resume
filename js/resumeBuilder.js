@@ -1,4 +1,5 @@
 // Define the objects
+
 //work object
 var work = {
     "jobs": [
@@ -9,8 +10,8 @@ var work = {
             "dates": "10/2001 - Present",
             "description": "Enterprise Vault Support and Implementation"
         }
-            ]
-};
+    ]
+}
 
 
 //bio object
@@ -24,12 +25,24 @@ var bio = {
         "twitter": "",
         "location": ""
     },
-    "biopic": "",
-    "welcomeMessage": "Welcome to My Resume",
-    "skills": ["Server Admin","Enterprise Vault","Web Developer","C#"]
+        "biopic": "",
+        "welcomeMessage": "Welcome to My Resume",
+        "skills": ["Server Admin","Enterprise Vault","Web Developer","C#"],
     
-};
-
+   skillsDisplay: function() {
+            var formattedName = HTMLheaderName.replace("%data%",bio.name);
+            var formattedRole = HTMLheaderRole.replace("%data%",bio.role);
+            $("#header").prepend(formattedRole);
+            $("#header").prepend(formattedName);
+            
+            $("#skillsChart").append(HTMLskillsStart);
+            var skillList = '';
+                for (skill in bio.skills) {
+                    skillList = HTMLskills.replace('%data%', bio.skills[skill]);
+                    $("#skills").prepend(skillList);
+                }
+        }
+}
 
 // education object
 var education = { 
@@ -51,42 +64,18 @@ var education = {
         "url": "http://www.udacity.com/course/ud804"
         }
     ]
-};
+}
 
 //projects object
 var projects = {
     "projects": [
         {
-            "title": "",
-            "dates": "",
-            "description": "",
-            "images" :[""]
+            "title": "Test",
+            "dates": "1234-1234",
+            "description": "test",
+            "images" :["none"]
         }
-            ]
-};
-    
-if (bio.skills.length > 0) {
+    ]
+}
 
-	$("#header").append(HTMLskillsStart);
-
-	var formattedSkills = HTMLskills.replace("%data%", bio.skills[0]);
-    console.log(formattedSkills);
-	$("#skillsChart").append(formattedSkills);
-
-	};
-/*    
-var formattedName = HTMLheaderName.replace("%data%",bio.name);
-var formattedRole = HTMLheaderRole.replace("%data%",bio.role);
-var formattedContact = HTMLemail.replace("%data%",bio.contactInfo);
-var formattedPicture = HTMLbioPic.replace("%data%",bio.pictureURL);
-var formattedWelcome = HTMLWelcomeMsg.replace("%data%",bio.welcomeMsg);
-var formattedSkills = HTMLskills.replace("%data%",bio.skills);
-
-
-$("#header").prepend(formattedContact);
-$("#header").prepend(formattedPicture);
-$("#header").prepend(formattedWelcome);
-$("#header").prepend(formattedSkills);
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
-*/
+bio.skillsDisplay();
